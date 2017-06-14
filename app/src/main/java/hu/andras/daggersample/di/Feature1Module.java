@@ -1,0 +1,22 @@
+package hu.andras.daggersample.di;
+
+
+import dagger.Module;
+import dagger.Provides;
+import hu.andras.daggersample.interactor.Feature1Interactor;
+import hu.andras.daggersample.ui.common.Navigator;
+import hu.andras.daggersample.ui.feature1.list.Feature1ListPresenter;
+
+/**
+ * Created by Andras Nemeth on 2017. 06. 05..
+ */
+
+@Module(includes = {CommonModule.class})
+public class Feature1Module {
+
+    @ActivityScope
+    @Provides
+    Feature1ListPresenter provideFeature1ListPresenter(Feature1Interactor interactor, Navigator navigator) {
+        return new Feature1ListPresenter(interactor, navigator);
+    }
+}
