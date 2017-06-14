@@ -20,7 +20,7 @@ public class Feature1DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feature1_list);
         Feature1DetailComponent.Get.component(this).inject(this);
-        getSupportActionBar().setTitle("Feature1DetailActivity");
+        getSupportActionBar().setTitle("Feature2DetailActivity");
         ((TextView)findViewById(R.id.text)).setText(interactor.getFeature1Stuff());
     }
 }

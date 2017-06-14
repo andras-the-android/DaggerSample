@@ -1,25 +1,26 @@
-package hu.andras.daggersample.ui.feature1.list;
-
-import javax.inject.Inject;
+package hu.andras.daggersample.ui.feature2.list;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import javax.inject.Inject;
+
 import hu.andras.daggersample.R;
-import hu.andras.daggersample.di.Feature1ListComponent;
+import hu.andras.daggersample.di.Feature2Module;
+import hu.andras.daggersample.di.InteractorComponent;
 
 
-public class Feature1ListActivity extends AppCompatActivity {
+public class Feature2ListActivity extends AppCompatActivity {
 
     @Inject
-    Feature1ListPresenter presenter;
+    Feature2ListPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feature1_list);
-        Feature1ListComponent.Get.component(this).inject(this);
+        InteractorComponent.Get.component().feature2ListSubcomponent(new Feature2Module(this)).inject(this);
         getSupportActionBar().setTitle("Feature2ListActivity");
         presenter.setView(this);
     }

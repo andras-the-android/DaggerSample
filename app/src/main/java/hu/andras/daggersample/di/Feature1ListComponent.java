@@ -11,7 +11,7 @@ import hu.andras.daggersample.ui.feature1.list.Feature1ListActivity;
  */
 
 @ActivityScope
-@Component(dependencies = InteractorComponent.class, modules = {Feature1Module.class})
+@Component(dependencies = InteractorComponent.class, modules = Feature1Module.class)
 public interface Feature1ListComponent {
 
     void inject(Feature1ListActivity feature1ListActivity);
@@ -25,7 +25,7 @@ public interface Feature1ListComponent {
             if (component == null) {
                 component = DaggerFeature1ListComponent.builder()
                         .commonModule(new CommonModule())
-                        .feature1Module(new Feature1Module())
+                        .feature1Module(new Feature1Module(activity))
                         .interactorComponent(InteractorComponent.Get.component())
                         .build();
             }

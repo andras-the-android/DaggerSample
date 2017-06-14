@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".ui.feature1.list.Feature1ListActivity"/>
         <activity android:name=".ui.feature1.detail.Feature1DetailActivity"/>
+        <activity android:name=".ui.feature2.list.Feature2ListActivity"/>
+        <activity android:name=".ui.feature2.detail.Feature2DetailActivity"/>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import hu.andras.daggersample.interactor.Feature1Interactor;
+import hu.andras.daggersample.interactor.Feature2Interactor;
 import hu.andras.daggersample.network.NetworkApi1;
 
 /**
@@ -19,5 +20,11 @@ public class InteractorModule {
     @Provides
     Feature1Interactor provideFeature1Interactor(NetworkApi1 networkApi1) {
         return new Feature1Interactor(networkApi1);
+    }
+
+    @Singleton
+    @Provides
+    Feature2Interactor provideFeature2Interactor(NetworkApi1 networkApi1) {
+        return new Feature2Interactor(networkApi1);
     }
 }
