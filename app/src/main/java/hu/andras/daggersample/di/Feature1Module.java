@@ -5,6 +5,7 @@ import android.app.Activity;
 
 import dagger.Module;
 import dagger.Provides;
+import hu.andras.daggersample.di.scopes.ActivityScope;
 import hu.andras.daggersample.interactor.Feature1Interactor;
 import hu.andras.daggersample.ui.common.Navigator;
 import hu.andras.daggersample.ui.feature1.list.Feature1ListPresenter;

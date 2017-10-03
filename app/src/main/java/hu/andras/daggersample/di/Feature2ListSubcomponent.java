@@ -1,6 +1,7 @@
 package hu.andras.daggersample.di;
 
 import dagger.Subcomponent;
+import hu.andras.daggersample.di.scopes.ActivityScope;
 import hu.andras.daggersample.ui.feature2.list.Feature2ListActivity;
 
 /**

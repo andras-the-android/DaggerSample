@@ -1,9 +1,7 @@
 package hu.andras.daggersample.di;
 
-import javax.inject.Singleton;
-
-
 import dagger.Component;
+import hu.andras.daggersample.di.scopes.IteractorScope;
 import hu.andras.daggersample.interactor.Feature1Interactor;
 import hu.andras.daggersample.interactor.Feature2Interactor;
 
@@ -11,8 +9,8 @@ import hu.andras.daggersample.interactor.Feature2Interactor;
  * Created by Andras_Nemeth on 2017. 06. 14..
  */
 
-@Singleton
-@Component(modules = InteractorModule.class)
+@IteractorScope
+@Component(dependencies = NetworkComponent.class, modules = InteractorModule.class)
 public interface InteractorComponent {
 
     //Need to expose for the other components which depend on this
@@ -32,7 +30,7 @@ public interface InteractorComponent {
         public static InteractorComponent component() {
             if (component == null) {
                 component = DaggerInteractorComponent.builder()
-                        .networkModule(new NetworkModule())
+                        .networkComponent(NetworkComponent.Get.component())
                         .interactorModule(new InteractorModule())
                         .build();
             }

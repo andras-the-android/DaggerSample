@@ -1,10 +1,8 @@
 package hu.andras.daggersample.di;
 
-import javax.inject.Singleton;
-
-
 import dagger.Module;
 import dagger.Provides;
+import hu.andras.daggersample.di.scopes.IteractorScope;
 import hu.andras.daggersample.interactor.Feature1Interactor;
 import hu.andras.daggersample.interactor.Feature2Interactor;
 import hu.andras.daggersample.network.NetworkApi1;
@@ -13,16 +11,16 @@ import hu.andras.daggersample.network.NetworkApi1;
  * Created by Andras Nemeth on 2017. 06. 05..
  */
 
-@Module(includes = NetworkModule.class)
+@Module()
 public class InteractorModule {
 
-    @Singleton
+    @IteractorScope
     @Provides
     Feature1Interactor provideFeature1Interactor(NetworkApi1 networkApi1) {
         return new Feature1Interactor(networkApi1);
     }
 
-    @Singleton
+    @IteractorScope
     @Provides
     Feature2Interactor provideFeature2Interactor(NetworkApi1 networkApi1) {
         return new Feature2Interactor(networkApi1);

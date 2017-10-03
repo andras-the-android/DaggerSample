@@ -1,7 +1,7 @@
 package hu.andras.daggersample.di;
 
-import javax.inject.Singleton;
 
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;

@@ -1,11 +1,11 @@
 package hu.andras.daggersample.di;
 
 import android.app.Activity;
-import android.os.Build;
 
 
 import dagger.BindsInstance;
 import dagger.Component;
+import hu.andras.daggersample.di.scopes.ActivityScope;
 import hu.andras.daggersample.ui.feature1.list.Feature1ListActivity;
 
 /**

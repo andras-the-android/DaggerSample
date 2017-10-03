@@ -5,7 +5,7 @@ import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
-import hu.andras.daggersample.DaggerSampleApplication;
+import hu.andras.daggersample.di.scopes.ActivityScope;
 import hu.andras.daggersample.ui.common.Navigator;
 
 /**

@@ -4,6 +4,7 @@ import android.app.Activity;
 
 
 import dagger.Component;
+import hu.andras.daggersample.di.scopes.ActivityScope;
 import hu.andras.daggersample.ui.feature1.detail.Feature1DetailActivity;
 
 /**
