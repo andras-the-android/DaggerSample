@@ -22,7 +22,7 @@ public interface InteractorComponent {
     //so this is not necessary for the inheritence. Only Feature2DetailActivity uses directly.
     Feature2Interactor feature2Interactor();
 
-    Feature2ListSubcomponent feature2ListSubcomponent(Feature2Module feature2Module);
+    Feature2ListSubcomponent feature2ListSubcomponent(Feature2Module feature2Module, ActivityModule activityModule);
 
     final class Get {
         private Get(){}

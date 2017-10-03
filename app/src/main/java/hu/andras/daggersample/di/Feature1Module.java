@@ -13,7 +13,7 @@ import hu.andras.daggersample.ui.feature1.list.Feature1ListPresenter;
  * Created by Andras Nemeth on 2017. 06. 05..
  */
 
-@Module(includes = {CommonModule.class})
+@Module(includes = {ActivityModule.class})
 public class Feature1Module {
 
     public Feature1Module(Activity activity) {

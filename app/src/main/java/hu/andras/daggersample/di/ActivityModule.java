@@ -13,12 +13,12 @@ import hu.andras.daggersample.ui.common.Navigator;
  */
 
 @Module
-public class CommonModule {
+public class ActivityModule {
 
     private Context context;
 
-    public CommonModule() {
-        this.context = DaggerSampleApplication.getInstance();
+    public ActivityModule(Context viewContext) {
+        this.context = viewContext;
     }
 
     @Provides

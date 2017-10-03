@@ -19,15 +19,10 @@ public interface Feature1DetailComponent {
     final class Get {
         private Get(){}
 
-        static Feature1DetailComponent component;
-
         public static Feature1DetailComponent component(Activity activity) {
-            if (component == null) {
-                component = DaggerFeature1DetailComponent.builder()
-                        .interactorComponent(InteractorComponent.Get.component())
-                        .build();
-            }
-            return component;
+            return  DaggerFeature1DetailComponent.builder()
+                    .interactorComponent(InteractorComponent.Get.component())
+                    .build();
         }
 
     }

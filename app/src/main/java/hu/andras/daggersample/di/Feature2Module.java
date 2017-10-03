@@ -12,7 +12,7 @@ import hu.andras.daggersample.ui.feature2.list.Feature2ListPresenter;
  * Created by Andras Nemeth on 2017. 06. 14..
  */
 
-@Module(includes = {CommonModule.class})
+@Module(includes = {ActivityModule.class})
 public class Feature2Module {
 
     public Feature2Module(Activity activity) {

@@ -7,6 +7,7 @@ import android.widget.TextView;
 import javax.inject.Inject;
 
 import hu.andras.daggersample.R;
+import hu.andras.daggersample.di.ActivityModule;
 import hu.andras.daggersample.di.Feature2Module;
 import hu.andras.daggersample.di.InteractorComponent;
 
@@ -20,7 +21,7 @@ public class Feature2ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feature1_list);
-        InteractorComponent.Get.component().feature2ListSubcomponent(new Feature2Module(this)).inject(this);
+        InteractorComponent.Get.component().feature2ListSubcomponent(new Feature2Module(this), new ActivityModule(this)).inject(this);
         getSupportActionBar().setTitle("Feature2ListActivity");
         presenter.setView(this);
     }
