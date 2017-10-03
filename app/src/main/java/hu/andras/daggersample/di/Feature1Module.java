@@ -21,7 +21,7 @@ public class Feature1Module {
 
     @ActivityScope
     @Provides
-    Feature1ListPresenter provideFeature1ListPresenter(Feature1Interactor interactor, Navigator navigator) {
-        return new Feature1ListPresenter(interactor, navigator);
+    Feature1ListPresenter provideFeature1ListPresenter(Feature1Interactor interactor, Navigator navigator, String boundInstance) {
+        return new Feature1ListPresenter(interactor, navigator, boundInstance);
     }
 }

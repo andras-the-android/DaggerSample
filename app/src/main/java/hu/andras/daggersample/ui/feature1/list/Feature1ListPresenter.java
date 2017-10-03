@@ -13,14 +13,16 @@ public class Feature1ListPresenter {
 
     private Feature1Interactor interactor;
     private Navigator navigator;
+    private String customBoundInstance;
 
-    public Feature1ListPresenter(Feature1Interactor interactor, Navigator navigator) {
+    public Feature1ListPresenter(Feature1Interactor interactor, Navigator navigator, String customBoundInstance) {
         this.interactor = interactor;
         this.navigator = navigator;
+        this.customBoundInstance = customBoundInstance;
     }
 
     void setView(Feature1ListActivity view) {
-        view.display(interactor.getFeature1Stuff());
+        view.display(interactor.getFeature1Stuff() + " " + customBoundInstance);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
