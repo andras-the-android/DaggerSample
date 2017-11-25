@@ -3,6 +3,8 @@ package hu.andras.daggersample.di;
 import android.app.Activity;
 
 
+import javax.inject.Named;
+
 import dagger.BindsInstance;
 import dagger.Component;
 import hu.andras.daggersample.di.scopes.ActivityScope;
@@ -29,7 +31,8 @@ public interface Feature1ListComponent {
     @Component.Builder
     interface Builder {
         Feature1ListComponent build();
-        @BindsInstance Builder customInstance(String s);
+        @BindsInstance Builder customInstance1(@Named("first") String s);
+        @BindsInstance Builder customInstance2(@Named("second") String s);
         Builder activityModuleWithCustomName(ActivityModule commonModule);
         Builder feature1Module(Feature1Module feature1Module);
         Builder interactorComponent(InteractorComponent interactorComponent);
@@ -38,9 +41,13 @@ public interface Feature1ListComponent {
     final class Get {
         private Get(){}
 
+        /**
+         * You have to set all the bound instances unless IllegalArgumentException will be thrown during injection which is dangerous.
+         */
         public static Feature1ListComponent component(Activity activity) {
             return DaggerFeature1ListComponent.builder()
-                    .customInstance("I'm the custom instance!")
+                    .customInstance1("I'm the custom instance!")
+                    .customInstance2("And I'm a custom instance too!")
                     .activityModuleWithCustomName(new ActivityModule(activity))
                     .feature1Module(new Feature1Module(activity))
                     .interactorComponent(InteractorComponent.Get.component())

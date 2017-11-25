@@ -3,6 +3,8 @@ package hu.andras.daggersample.di;
 
 import android.app.Activity;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 import hu.andras.daggersample.di.scopes.ActivityScope;
@@ -22,7 +24,7 @@ public class Feature1Module {
 
     @ActivityScope
     @Provides
-    Feature1ListPresenter provideFeature1ListPresenter(Feature1Interactor interactor, Navigator navigator, String boundInstance) {
+    Feature1ListPresenter provideFeature1ListPresenter(Feature1Interactor interactor, Navigator navigator, @Named("second") String boundInstance) {
         return new Feature1ListPresenter(interactor, navigator, boundInstance);
     }
 }
