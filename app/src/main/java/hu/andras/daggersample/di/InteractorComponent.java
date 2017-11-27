@@ -1,6 +1,8 @@
 package hu.andras.daggersample.di;
 
 import dagger.Component;
+import dagger.android.AndroidInjectionModule;
+import hu.andras.daggersample.di.androidinjection.ActivityBuilder;
 import hu.andras.daggersample.di.scopes.IteractorScope;
 import hu.andras.daggersample.interactor.Feature1Interactor;
 import hu.andras.daggersample.interactor.Feature2Interactor;
@@ -10,7 +12,7 @@ import hu.andras.daggersample.interactor.Feature2Interactor;
  */
 
 @IteractorScope
-@Component(dependencies = NetworkComponent.class, modules = InteractorModule.class)
+@Component(dependencies = NetworkComponent.class, modules = {InteractorModule.class, AndroidInjectionModule.class, ActivityBuilder.class})
 public interface InteractorComponent {
 
     //Need to expose for the other components which depend on this

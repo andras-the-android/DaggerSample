@@ -8,6 +8,7 @@ import android.view.View;
 import hu.andras.daggersample.R;
 import hu.andras.daggersample.ui.feature1.list.Feature1ListActivity;
 import hu.andras.daggersample.ui.feature2.list.Feature2ListActivity;
+import hu.andras.daggersample.ui.feature3.list.Feature3ListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,5 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void startSubcomponent(View view) {
         startActivity(new Intent(this, Feature2ListActivity.class));
+    }
+
+    public void startAndroidInjection(View view) {
+        startActivity(new Intent(this, Feature3ListActivity.class));
     }
 }

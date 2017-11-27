@@ -3,6 +3,10 @@ package hu.andras.daggersample.ui.common;
 import android.content.Context;
 import android.content.Intent;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import hu.andras.daggersample.di.scopes.ActivityScope;
 import hu.andras.daggersample.ui.feature1.detail.Feature1DetailActivity;
 import hu.andras.daggersample.ui.feature2.detail.Feature2DetailActivity;
 
@@ -15,7 +19,8 @@ public class Navigator {
 
     private Context context;
 
-    public Navigator(Context context) {
+    @Inject
+    public Navigator( Context context) {
         this.context = context;
     }
 
@@ -25,5 +30,8 @@ public class Navigator {
 
     public void goToFeature2DetailScreen() {
         context.startActivity(new Intent(context, Feature2DetailActivity.class));
+    }
+
+    public void goToFeature3DetailScreen() {
     }
 }
