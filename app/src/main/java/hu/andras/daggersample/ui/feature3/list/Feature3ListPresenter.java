@@ -26,11 +26,9 @@ public class Feature3ListPresenter {
 
     void setView(Feature3ListActivity view) {
         view.display(interactor.getFeature3Stuff());
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                navigator.goToFeature3DetailScreen();
-            }
-        }, 3000);
+    }
+
+    void onButtonClick() {
+        navigator.goToFeature3DetailScreen();
     }
 }

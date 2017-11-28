@@ -22,6 +22,7 @@
         <activity android:name=".ui.feature2.list.Feature2ListActivity"/>
         <activity android:name=".ui.feature2.detail.Feature2DetailActivity"/>
         <activity android:name=".ui.feature3.list.Feature3ListActivity"/>
+        <activity android:name=".ui.feature3.detail.Feature3DetailActivity"/>
     </application>
 
 </manifest>

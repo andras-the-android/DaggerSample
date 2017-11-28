@@ -9,6 +9,7 @@ import javax.inject.Named;
 import hu.andras.daggersample.di.scopes.ActivityScope;
 import hu.andras.daggersample.ui.feature1.detail.Feature1DetailActivity;
 import hu.andras.daggersample.ui.feature2.detail.Feature2DetailActivity;
+import hu.andras.daggersample.ui.feature3.detail.Feature3DetailActivity;
 
 
 /**
@@ -33,5 +34,6 @@ public class Navigator {
     }
 
     public void goToFeature3DetailScreen() {
+        context.startActivity(new Intent(context, Feature3DetailActivity.class));
     }
 }
