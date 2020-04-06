@@ -1,9 +1,10 @@
 package hu.andras.daggersample.ui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import hu.andras.daggersample.R;
 import hu.andras.daggersample.ui.feature1.list.Feature1ListActivity;
