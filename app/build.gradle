@@ -23,10 +23,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
-    annotationProcessor "com.google.dagger:dagger-compiler:2.13"
-    implementation "com.google.dagger:dagger:2.13"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.27"
+    implementation "com.google.dagger:dagger:2.27"
 //    compile 'com.google.dagger:dagger-android:2.13' //if you use normal activity
-    implementation 'com.google.dagger:dagger-android-support:2.13' // if you use the support activity
-    annotationProcessor "com.google.dagger:dagger-android-processor:2.13" //this contains @ContributesAndroidInjector
+    implementation 'com.google.dagger:dagger-android-support:2.27' // if you use the support activity
+    annotationProcessor "com.google.dagger:dagger-android-processor:2.27" //this contains @ContributesAndroidInjector
     implementation 'javax.annotation:jsr250-api:1.0'
 }

@@ -1,19 +1,19 @@
 package hu.andras.daggersample;
 
-import android.app.Activity;
 import android.app.Application;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
+import dagger.android.HasAndroidInjector;
 import hu.andras.daggersample.di.androidinjection.DaggerAppComponent;
 
 
-public class DaggerSampleApplication extends Application  implements HasActivityInjector {
+public class DaggerSampleApplication extends Application  implements HasAndroidInjector {
 
     @Inject
-    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
+    DispatchingAndroidInjector<Object> activityDispatchingAndroidInjector;
 
     private static DaggerSampleApplication instance;
 
@@ -33,8 +33,7 @@ public class DaggerSampleApplication extends Application  implements HasActivity
     }
 
     @Override
-    public DispatchingAndroidInjector<Activity> activityInjector() {
+    public AndroidInjector<Object> androidInjector() {
         return activityDispatchingAndroidInjector;
     }
-
 }
