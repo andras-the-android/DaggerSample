@@ -1,10 +1,11 @@
 package hu.andras.daggersample.ui.feature1.detail;
 
-import javax.inject.Inject;
-
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import javax.inject.Inject;
 
 import hu.andras.daggersample.R;
 import hu.andras.daggersample.di.Feature1DetailComponent;

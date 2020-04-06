@@ -1,8 +1,9 @@
 package hu.andras.daggersample.ui.feature2.detail;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import hu.andras.daggersample.R;
 import hu.andras.daggersample.di.InteractorComponent;

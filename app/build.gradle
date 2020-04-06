@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.1"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "hu.andras.daggersample"
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -20,13 +20,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:27.0.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 
     annotationProcessor "com.google.dagger:dagger-compiler:2.13"
-    compile "com.google.dagger:dagger:2.13"
+    implementation "com.google.dagger:dagger:2.13"
 //    compile 'com.google.dagger:dagger-android:2.13' //if you use normal activity
-    compile 'com.google.dagger:dagger-android-support:2.13' // if you use the support activity
+    implementation 'com.google.dagger:dagger-android-support:2.13' // if you use the support activity
     annotationProcessor "com.google.dagger:dagger-android-processor:2.13" //this contains @ContributesAndroidInjector
-    provided 'javax.annotation:jsr250-api:1.0'
+    implementation 'javax.annotation:jsr250-api:1.0'
 }

@@ -1,16 +1,15 @@
 package hu.andras.daggersample.ui.feature3.detail;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
-import dagger.android.support.DaggerAppCompatActivity;
 import hu.andras.daggersample.R;
-import hu.andras.daggersample.ui.feature3.list.Feature3ListPresenter;
 
 /**
  * Created by Andras Nemeth on 2017-11-28.
