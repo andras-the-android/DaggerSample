@@ -1,7 +1,5 @@
 package hu.andras.daggersample.ui.feature1.list;
 
-import android.os.Handler;
-
 import hu.andras.daggersample.interactor.Feature1Interactor;
 import hu.andras.daggersample.ui.common.Navigator;
 
@@ -23,11 +21,9 @@ public class Feature1ListPresenter {
 
     void setView(Feature1ListActivity view) {
         view.display(interactor.getFeature1Stuff() + " " + customBoundInstance);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                navigator.goToFeature1DetailScreen();
-            }
-        }, 2000);
+    }
+
+    void goToDetail() {
+        navigator.goToFeature1DetailScreen();
     }
 }

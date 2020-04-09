@@ -1,6 +1,7 @@
 package hu.andras.daggersample.ui.feature2.list;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,12 @@ public class Feature2ListActivity extends AppCompatActivity {
         InteractorComponent.Get.component().feature2ListSubcomponent(new Feature2Module(this), new ActivityModule(this)).inject(this);
         getSupportActionBar().setTitle("Feature2ListActivity");
         presenter.setView(this);
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.goToDetail();
+            }
+        });
     }
 
 

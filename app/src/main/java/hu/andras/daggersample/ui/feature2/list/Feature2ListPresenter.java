@@ -1,7 +1,5 @@
 package hu.andras.daggersample.ui.feature2.list;
 
-import android.os.Handler;
-
 import hu.andras.daggersample.interactor.Feature2Interactor;
 import hu.andras.daggersample.ui.common.Navigator;
 
@@ -21,11 +19,9 @@ public class Feature2ListPresenter {
 
     void setView(Feature2ListActivity view) {
         view.display(interactor.getFeature2Stuff());
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                navigator.goToFeature2DetailScreen();
-            }
-        }, 2000);
+    }
+
+    void goToDetail() {
+        navigator.goToFeature2DetailScreen();
     }
 }
