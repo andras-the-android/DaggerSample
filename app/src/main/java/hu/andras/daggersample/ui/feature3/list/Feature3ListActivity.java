@@ -31,7 +31,7 @@ public class Feature3ListActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.onButtonClick();
+                presenter.goToDetail();
             }
         });
     }

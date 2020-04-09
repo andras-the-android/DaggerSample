@@ -1,6 +1,7 @@
 package hu.andras.daggersample.ui.feature2.detail;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +21,6 @@ public class Feature2DetailActivity extends AppCompatActivity {
         interactor = InteractorComponent.Get.component().feature2Interactor();
         getSupportActionBar().setTitle("Feature2DetailActivity");
         ((TextView)findViewById(R.id.text)).setText(interactor.getFeature2Stuff());
+        findViewById(R.id.button).setVisibility(View.GONE);
     }
 }

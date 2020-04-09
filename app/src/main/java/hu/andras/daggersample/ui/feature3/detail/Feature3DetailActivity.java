@@ -1,6 +1,7 @@
 package hu.andras.daggersample.ui.feature3.detail;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -27,6 +28,7 @@ public class Feature3DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feature1_list);
         getSupportActionBar().setTitle("Feature2ListActivity");
         presenter.setView(this);
+        findViewById(R.id.button).setVisibility(View.GONE);
     }
 
     public void display(String feature1Stuff) {

@@ -1,7 +1,5 @@
 package hu.andras.daggersample.ui.feature3.list;
 
-import android.os.Handler;
-
 import javax.inject.Inject;
 
 import hu.andras.daggersample.di.scopes.ActivityScope;
@@ -28,7 +26,7 @@ public class Feature3ListPresenter {
         view.display(interactor.getFeature3Stuff());
     }
 
-    void onButtonClick() {
+    void goToDetail() {
         navigator.goToFeature3DetailScreen();
     }
 }
