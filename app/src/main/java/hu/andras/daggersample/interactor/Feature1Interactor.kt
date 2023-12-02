@@ -1,22 +1,15 @@
-package hu.andras.daggersample.interactor;
+package hu.andras.daggersample.interactor
 
-
-import hu.andras.daggersample.network.NetworkApi1;
+import hu.andras.daggersample.network.NetworkApi1
 
 /**
  * Created by Andras Nemeth on 2017. 06. 04..
  */
-
-public class Feature1Interactor {
-
-    private NetworkApi1 networkApi1;
-
-    public Feature1Interactor(NetworkApi1 networkApi1) {
-        this.networkApi1 = networkApi1;
-        System.out.println("ddd Feature1Interactor created " + this);
+class Feature1Interactor(private val networkApi1: NetworkApi1) {
+    init {
+        println("ddd Feature1Interactor created $this")
     }
 
-    public String getFeature1Stuff() {
-        return "##" + networkApi1.getRequest() + "feature1 interactor: " + this + "##";
-    }
+    val feature1Stuff: String
+        get() = "##" + networkApi1.request + "feature1 interactor: " + this + "##"
 }

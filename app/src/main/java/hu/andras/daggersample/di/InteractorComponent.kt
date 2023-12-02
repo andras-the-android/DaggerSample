@@ -1,41 +1,30 @@
-package hu.andras.daggersample.di;
+package hu.andras.daggersample.di
 
-import dagger.Component;
-import hu.andras.daggersample.di.scopes.IteractorScope;
-import hu.andras.daggersample.interactor.Feature1Interactor;
-import hu.andras.daggersample.interactor.Feature2Interactor;
+import dagger.Component
+import hu.andras.daggersample.di.scopes.IteractorScope
+import hu.andras.daggersample.interactor.Feature1Interactor
+import hu.andras.daggersample.interactor.Feature2Interactor
 
 /**
  * Created by Andras_Nemeth on 2017. 06. 14..
  */
-
 @IteractorScope
-@Component(dependencies = NetworkComponent.class, modules = InteractorModule.class)
-public interface InteractorComponent {
-
+@Component(dependencies = [NetworkComponent::class], modules = [InteractorModule::class])
+interface InteractorComponent {
     //Need to expose for the other components which depend on this
-    Feature1Interactor feature1Interactor();
+    fun feature1Interactor(): Feature1Interactor
 
     //subcomponent automatically can inject everything the parent's modules can,
     //so this is not necessary for the inheritence. Only Feature2DetailActivity uses directly.
-    Feature2Interactor feature2Interactor();
+    fun feature2Interactor(): Feature2Interactor
+    fun feature2ListSubcomponent(feature2Module: Feature2Module?, activityModule: ActivityModule?): Feature2ListSubcomponent
 
-    Feature2ListSubcomponent feature2ListSubcomponent(Feature2Module feature2Module, ActivityModule activityModule);
-
-    final class Get {
-        private Get(){}
-
-        private static InteractorComponent component;
-
-        public static InteractorComponent component() {
-            if (component == null) {
-                component = DaggerInteractorComponent.builder()
-                        .networkComponent(NetworkComponent.Get.component())
-                        .interactorModule(new InteractorModule())
-                        .build();
-            }
-            return component;
+    object Get {
+        val component: InteractorComponent = run {
+            DaggerInteractorComponent.builder()
+                .networkComponent(NetworkComponent.Get.component())
+                .interactorModule(InteractorModule())
+                .build()
         }
-
     }
 }

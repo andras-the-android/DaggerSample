@@ -1,20 +1,15 @@
-package hu.andras.daggersample;
+package hu.andras.daggersample
 
-import android.app.Application;
+import android.app.Application
 
-
-public class DaggerSampleApplication extends Application {
-
-    private static DaggerSampleApplication instance;
-
-    public static DaggerSampleApplication getInstance() {
-        return instance;
+class DaggerSampleApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        instance = this;
+    companion object {
+        var instance: DaggerSampleApplication? = null
+            private set
     }
-
 }

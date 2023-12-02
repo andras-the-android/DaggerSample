@@ -1,17 +1,11 @@
-package hu.andras.daggersample.di.scopes;
+package hu.andras.daggersample.di.scopes
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
-import javax.inject.Scope;
+import javax.inject.Scope
 
 /**
  * Created by Andras_Nemeth on 2017. 06. 14..
  */
-
 @Scope
-@Documented
-@Retention(value= RetentionPolicy.RUNTIME)
-public @interface ActivityScope {
-}
+@MustBeDocumented
+@Retention(AnnotationRetention.RUNTIME)
+annotation class ActivityScope 

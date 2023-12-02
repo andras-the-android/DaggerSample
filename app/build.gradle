@@ -1,8 +1,11 @@
-apply plugin: 'com.android.application'
-apply plugin: 'org.jetbrains.kotlin.android'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
     defaultConfig {
         applicationId "hu.andras.daggersample"
         minSdkVersion 24
@@ -17,15 +20,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
     namespace 'hu.andras.daggersample'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:+'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
 
-    annotationProcessor "com.google.dagger:dagger-compiler:2.27"
-    implementation "com.google.dagger:dagger:2.27"
-    implementation 'javax.annotation:jsr250-api:1.0'
+    implementation 'com.google.dagger:dagger:2.48.1'
+    kapt 'com.google.dagger:dagger-compiler:2.48.1'
 }

@@ -1,41 +1,29 @@
-package hu.andras.daggersample.ui.feature2.list;
+package hu.andras.daggersample.ui.feature2.list
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import hu.andras.daggersample.R
+import hu.andras.daggersample.di.ActivityModule
+import hu.andras.daggersample.di.Feature2Module
+import hu.andras.daggersample.di.InteractorComponent
+import javax.inject.Inject
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import javax.inject.Inject;
-
-import hu.andras.daggersample.R;
-import hu.andras.daggersample.di.ActivityModule;
-import hu.andras.daggersample.di.Feature2Module;
-import hu.andras.daggersample.di.InteractorComponent;
-
-
-public class Feature2ListActivity extends AppCompatActivity {
-
+class Feature2ListActivity : AppCompatActivity() {
+    @JvmField
     @Inject
-    Feature2ListPresenter presenter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feature1_list);
-        InteractorComponent.Get.component().feature2ListSubcomponent(new Feature2Module(this), new ActivityModule(this)).inject(this);
-        getSupportActionBar().setTitle("Feature2ListActivity");
-        presenter.setView(this);
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.goToDetail();
-            }
-        });
+    var presenter: Feature2ListPresenter? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_feature1_list)
+        InteractorComponent.Get.component.feature2ListSubcomponent(Feature2Module(this), ActivityModule(this)).inject(this)
+        supportActionBar!!.title = "Feature2ListActivity"
+        presenter!!.setView(this)
+        findViewById<View>(R.id.button).setOnClickListener { presenter!!.goToDetail() }
     }
 
-
-    public void display(String feature1Stuff) {
-        ((TextView)findViewById(R.id.text)).setText(feature1Stuff);
+    fun display(feature1Stuff: String?) {
+        (findViewById<View>(R.id.text) as TextView).text = feature1Stuff
     }
 }

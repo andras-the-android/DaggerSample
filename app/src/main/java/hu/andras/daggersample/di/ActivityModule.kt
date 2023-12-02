@@ -1,30 +1,19 @@
-package hu.andras.daggersample.di;
+package hu.andras.daggersample.di
 
-import android.content.Context;
-
-
-import dagger.Module;
-import dagger.Provides;
-import hu.andras.daggersample.di.scopes.ActivityScope;
-import hu.andras.daggersample.ui.common.Navigator;
+import android.content.Context
+import dagger.Module
+import dagger.Provides
+import hu.andras.daggersample.di.scopes.ActivityScope
+import hu.andras.daggersample.ui.common.Navigator
 
 /**
  * Created by Andras Nemeth on 2017. 06. 05..
  */
-
 @Module
-public class ActivityModule {
-
-    private Context context;
-
-    public ActivityModule(Context viewContext) {
-        this.context = viewContext;
-    }
-
+class ActivityModule(private val context: Context) {
     @Provides
     @ActivityScope
-    Navigator provideNavigator() {
-        return new Navigator(context);
+    fun provideNavigator(): Navigator {
+        return Navigator(context)
     }
-
 }

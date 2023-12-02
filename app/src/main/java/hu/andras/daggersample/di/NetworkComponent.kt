@@ -1,36 +1,28 @@
-package hu.andras.daggersample.di;
+package hu.andras.daggersample.di
 
-import javax.inject.Singleton;
-
-import dagger.Component;
-import hu.andras.daggersample.network.NetworkApi1;
-import hu.andras.daggersample.network.NetworkApi2;
+import dagger.Component
+import hu.andras.daggersample.network.NetworkApi1
+import hu.andras.daggersample.network.NetworkApi2
+import javax.inject.Singleton
 
 /**
  * Created by Andras_Nemeth on 2017. 10. 03..
  */
-
 @Singleton
-@Component(modules = NetworkModule.class)
-public interface NetworkComponent {
+@Component(modules = [NetworkModule::class])
+interface NetworkComponent {
+    fun networkApi1(): NetworkApi1
+    fun networkApi2(): NetworkApi2
 
-    NetworkApi1 networkApi1();
-
-    NetworkApi2 networkApi2();
-
-    final class Get {
-        private Get(){}
-
-        private static NetworkComponent component;
-
-        public static NetworkComponent component() {
+    object Get {
+        private var component: NetworkComponent? = null
+        fun component(): NetworkComponent? {
             if (component == null) {
                 component = DaggerNetworkComponent.builder()
-                        .networkModule(new NetworkModule())
-                        .build();
+                    .networkModule(NetworkModule())
+                    .build()
             }
-            return component;
+            return component
         }
-
     }
 }

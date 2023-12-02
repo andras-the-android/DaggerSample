@@ -1,39 +1,27 @@
-package hu.andras.daggersample.ui.feature1.list;
+package hu.andras.daggersample.ui.feature1.list
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import hu.andras.daggersample.R
+import hu.andras.daggersample.di.Feature1ListComponent
+import javax.inject.Inject
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import javax.inject.Inject;
-
-import hu.andras.daggersample.R;
-import hu.andras.daggersample.di.Feature1ListComponent;
-
-
-public class Feature1ListActivity extends AppCompatActivity {
-
+class Feature1ListActivity : AppCompatActivity() {
+    @JvmField
     @Inject
-    Feature1ListPresenter presenter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feature1_list);
-        Feature1ListComponent.Get.component(this).inject(this);
-        getSupportActionBar().setTitle("Feature2ListActivity");
-        presenter.setView(this);
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.goToDetail();
-            }
-        });
+    var presenter: Feature1ListPresenter? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_feature1_list)
+        Feature1ListComponent.Get.component(this)?.inject(this)
+        supportActionBar!!.title = "Feature2ListActivity"
+        presenter!!.setView(this)
+        findViewById<View>(R.id.button).setOnClickListener { presenter!!.goToDetail() }
     }
 
-
-    public void display(String feature1Stuff) {
-        ((TextView)findViewById(R.id.text)).setText(feature1Stuff);
+    fun display(feature1Stuff: String?) {
+        (findViewById<View>(R.id.text) as TextView).text = feature1Stuff
     }
 }

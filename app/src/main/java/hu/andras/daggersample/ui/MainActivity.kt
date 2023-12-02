@@ -1,28 +1,24 @@
-package hu.andras.daggersample.ui;
+package hu.andras.daggersample.ui
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import hu.andras.daggersample.R
+import hu.andras.daggersample.ui.feature1.list.Feature1ListActivity
+import hu.andras.daggersample.ui.feature2.list.Feature2ListActivity
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import hu.andras.daggersample.R;
-import hu.andras.daggersample.ui.feature1.list.Feature1ListActivity;
-import hu.andras.daggersample.ui.feature2.list.Feature2ListActivity;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
     }
 
-    public void startComponentDependency(View view) {
-        startActivity(new Intent(this, Feature1ListActivity.class));
+    fun startComponentDependency(view: View?) {
+        startActivity(Intent(this, Feature1ListActivity::class.java))
     }
 
-    public void startSubcomponent(View view) {
-        startActivity(new Intent(this, Feature2ListActivity.class));
+    fun startSubcomponent(view: View?) {
+        startActivity(Intent(this, Feature2ListActivity::class.java))
     }
 }
