@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 34
     defaultConfig {
         applicationId "hu.andras.daggersample"
-        minSdkVersion 17
-        targetSdkVersion 29
+        minSdkVersion 24
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -22,6 +23,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:+'
 
     annotationProcessor "com.google.dagger:dagger-compiler:2.27"
     implementation "com.google.dagger:dagger:2.27"
